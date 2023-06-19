@@ -1,0 +1,3 @@
+name = "simple-redirector"
+main = "src/index.ts"
+compatibility_date = "2023-06-19"

@@ -1,0 +1,6 @@
+.gitignore eol=lf
+.gitattributes eol=lf
+*.ts eol=lf
+*.js eol=lf
+*.json eol=lf
+wrangler.toml eol=lf
