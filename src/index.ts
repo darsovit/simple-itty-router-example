@@ -8,6 +8,8 @@
  * Learn more at https://developers.cloudflare.com/workers/
  */
 
+import { type IRequest, Router } from 'itty-router'
+
 export interface Env {
   // Example binding to KV. Learn more at https://developers.cloudflare.com/workers/runtime-apis/kv/
   // MY_KV_NAMESPACE: KVNamespace;
@@ -20,15 +22,16 @@ export interface Env {
   //
   // Example binding to a Service. Learn more at https://developers.cloudflare.com/workers/runtime-apis/service-bindings/
   // MY_SERVICE: Fetcher;
-  someEnvString: string
 }
 
+const router = Router()
+
+export const handleHelloWorld = async (req: IRequest): Promise<Response> => {
+  return new Response('Hello World!')
+}
+
+router.get('*', handleHelloWorld)
+
 export default {
-  async fetch (
-    request: Request,
-    env: Env,
-    ctx: ExecutionContext
-  ): Promise<Response> {
-    return new Response('Hello World!')
-  }
+  fetch: async (req: IRequest) => await router.handle(req)
 }

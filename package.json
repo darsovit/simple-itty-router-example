@@ -19,5 +19,8 @@
     "deploy": "wrangler publish",
     "lint": "eslint src",
     "test": "vitest run"
+  },
+  "dependencies": {
+    "itty-router": "^4.0.11"
   }
 }
